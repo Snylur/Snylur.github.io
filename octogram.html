@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+<head>
+	<meta content="OCTOGRAM" property="og:title">
+	<meta content="WORDGAME" property="og:description">
+</description>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body >
+<div class = "game" id="game">
+	
+	
+</div>
+</body>
+
+<style>
+
+	
+	body{
+		background-color: #aaccaa;
+	}
+
+	body, button, input{
+		font-family: "Fira Mono Bold", monospace;
+		font-size: 100px;
+		color: #113311;
+	}
+
+	body input{
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		text-align: center;
+		border-width: 10px;
+		background-color: #77aa77;
+		border-radius: 10px;
+		border: 10px solid #113311;
+		width: 500px;
+	}
+
+	body button.menubut{
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		text-align: center;
+		
+	}
+
+	.greyed{
+		background-color: #99cc99;
+		border: 10px solid #557755;
+		color: #557755;
+	}
+
+	.comp{
+		background-color: #cccc77;
+		border: 10px solid #555511;
+		color: #555511;
+	}
+
+	body button.levelbut{
+		margin-top: 10px;
+		margin-left: 10px;
+		height: 150px;
+		width:150px;
+		
+	}
+
+	body button.little{
+		margin-top: 200px;
+		font-size: 30px;
+		border-width: 3px;
+	}
+
+	p{
+		margin-top:0px;
+		margin-bottom:0px;
+	}
+
+	.tiny{
+		font-size: 16px;
+
+	}
+
+	.somewhattiny{
+		font-size: 25px;
+
+	}
+
+	.medium{
+		font-size: 60px;
+	}
+
+	.levelrow{
+		white-space:nowrap;
+	}
+
+	body button {
+		border-width: 10px;
+		background-color: #77aa77;
+		border-radius: 10px;
+		border: 10px solid #113311;
+	}
+
+	body div{
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		text-align: center;
+	}
+
+	body button.topright{
+		margin-top: 0px;
+		font-size: 30px;
+		position:absolute;
+		top:10px;
+		right:10px;
+	}
+
+	body button.topright2{
+		margin-top: 0px;
+		font-size: 30px;
+		position:absolute;
+		top:10px;
+		right:210px;
+	}
+
+	body div.little{
+		font-size: 30px;
+		position:absolute;
+		top:10px;
+		left:10px;
+	}
+
+	textarea:focus, input:focus{
+    outline: none;
+}
+
+	</style>
+<script>
+
+levels = [
+	{gram: "TYPEOKAY", ans: "okay", unlocked:true},
+  {required: 1},
+	{gram: "MMMXXXIV", ans: "3034"},
+	{gram: "IMICILIX", ans: "1156"},
+	{gram: "MDVDLXIX", ans: "2064"},
+	{gram: "LXVIIXVI", ans: "6516"},
+	{gram: "LXVIIVXV", ans: "25025"},
+	{gram: "LXVIIVXV", ans: "25025"},
+	{gram: "MIXDVVII", ans: "vivid"},
+	{gram: "EMAXEEYE", ans: "1011"},
+  {required: 1},
+	{gram: "THIRTEEN", ans: "13"},
+	{gram: "ROOTFOUR", ans: "2"},
+	{gram: "TWICETWO", ans: "4"},
+	{gram: "SINTWOPI", ans: "0"},
+	{gram: "PITWOARE", ans: "circumference,perimeter"},
+	{gram: "LNNEGONE", ans: "iπ,ipi,i pi,i*pi,ixpi,i * pi,i x pi"},
+	{gram: "DDXFOURX", ans: "4"},
+	{gram: "DDTWOYXY", ans: "y^2lny,y^2ln y,y^2ln(y),y^2ln of y,y^2logy,y^2log y,y^2log(y),y^2log of y,y^2 lny,y^2 ln y,y^2 ln(y),y^2 ln of y,y^2 logy,y^2 log y,y^2 log(y),y^2 log of y,y^2*lny,y^2*ln y,y^2*ln(y),y^2*ln of y,y^2*logy,y^2*log y,y^2*log(y),y^2*log of y,y^2xlny,y^2xln y,y^2xln(y),y^2xln of y,y^2xlogy,y^2xlog y,y^2xlog(y),y^2xlog of y,y^2 * lny,y^2 * ln y,y^2 * ln(y),y^2 * ln of y,y^2 * logy,y^2 * log y,y^2 * log(y),y^2 * log of y,y^2 x lny,y^2 x ln y,y^2 x ln(y),y^2 x ln of y,y^2 x logy,y^2 x log y,y^2 x log(y),y^2 x log of y,y^2 times lny,y^2 times ln y,y^2 times ln(y),y^2 times ln of y,y^2 times logy,y^2 times log y,y^2 times log(y),y^2 times log of y,yylny,yyln y,yyln(y),yyln of y,yylogy,yylog y,yylog(y),yylog of y,yy lny,yy ln y,yy ln(y),yy ln of y,yy logy,yy log y,yy log(y),yy log of y,yy*lny,yy*ln y,yy*ln(y),yy*ln of y,yy*logy,yy*log y,yy*log(y),yy*log of y,yyxlny,yyxln y,yyxln(y),yyxln of y,yyxlogy,yyxlog y,yyxlog(y),yyxlog of y,yy * lny,yy * ln y,yy * ln(y),yy * ln of y,yy * logy,yy * log y,yy * log(y),yy * log of y,yy x lny,yy x ln y,yy x ln(y),yy x ln of y,yy x logy,yy x log y,yy x log(y),yy x log of y,yy times lny,yy times ln y,yy times ln(y),yy times ln of y,yy times logy,yy times log y,yy times log(y),yy times log of y,y squaredlny,y squaredln y,y squaredln(y),y squaredln of y,y squaredlogy,y squaredlog y,y squaredlog(y),y squaredlog of y,y squared lny,y squared ln y,y squared ln(y),y squared ln of y,y squared logy,y squared log y,y squared log(y),y squared log of y,y squared*lny,y squared*ln y,y squared*ln(y),y squared*ln of y,y squared*logy,y squared*log y,y squared*log(y),y squared*log of y,y squaredxlny,y squaredxln y,y squaredxln(y),y squaredxln of y,y squaredxlogy,y squaredxlog y,y squaredxlog(y),y squaredxlog of y,y squared * lny,y squared * ln y,y squared * ln(y),y squared * ln of y,y squared * logy,y squared * log y,y squared * log(y),y squared * log of y,y squared x lny,y squared x ln y,y squared x ln(y),y squared x ln of y,y squared x logy,y squared x log y,y squared x log(y),y squared x log of y,y squared times lny,y squared times ln y,y squared times ln(y),y squared times ln of y,y squared times logy,y squared times log y,y squared times log(y),y squared times log of y"},
+	{required: 17},
+	{gram: "FINALLVL", ans: "finallvl"},
+	{}
+	];
+cellsize = 10;
+
+curlevel = levels[0]
+progress = 0;
+
+save= ()=>{
+	localStorage.setItem('savedata', [JSON.stringify([progress, levels])])
+}
+
+load = () => {
+	if(!localStorage.getItem('savedata')) return false;
+	temp = JSON.parse(localStorage.getItem('savedata'));
+	for(i in temp[1]){
+		if(levels[i].gram) {
+			temp[1][i].gram = levels[i].gram
+			temp[1][i].ans = levels[i].ans;
+		}
+	}
+		[progress, levels] = temp;
+	console.log()
+}
+
+load();
+
+onlylowercase = (s) => {
+	t = "";
+
+}
+
+hackthing = (x, y) => {
+							a = () => {
+								document.getElementById(x).style.visibility =y;
+							};
+							return a;
+						}
+
+loadlevelmenu = () => {
+	s = `<div class = "little">PROGRESS: ${progress}✔</div><button class = "little topright" id = "MAINMENU"> MAINMENU </button> <div class="levelrow">`;
+	z = 0;
+	r = 0;
+	opac = 100;
+	firstanim = -1;
+	for(i in levels){
+		if(levels[i].gram){
+			z++;
+			levels[i].z = z;
+		}
+	}
+	z = 0;
+	for(i in levels){
+				if(opac <=0) continue;
+
+		z++;
+		level = levels[i];
+		if(level.gram)
+			
+			if(progress >= r && !level.unlocked){
+
+					if(firstanim == -1) firstanim = i-1;
+					level.unlocked = true;
+					let uid = "unlocked"+i
+					s += `<button class="levelbut ${level.completed?"comp":""}" style=${opac>0?`opacity:${opac}%`:"display:none"} onclick="${r <= progress?`loadlevel(${i})`:'' }">
+							<div class="somewhattiny" id=${uid}>UNLOCKED! </div>
+							<div class="medium">	${ z}  </div>
+							<div class="tiny" ${level.completed?"":"style='visibility:hidden'"}>COMPLETED</div>
+
+						</button>`
+						setTimeout(hackthing(uid, "hidden"), 1)
+						setTimeout(hackthing(uid, ""), 100*(i-firstanim))
+			}else{
+				s += `<button class="levelbut  ${level.completed?"comp":""}" style=${opac>0?`opacity:${opac}%`:"display:none"} onclick="${r <= progress?`loadlevel(${i})`:'' }">
+							<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"REQUIRES " + r + "✔"}</div>
+							<div class="medium">	${ z}  </div>
+							<div class="tiny" ${level.completed?"":"style='visibility:hidden'"}>COMPLETE</div>
+
+						</button>`
+			}
+		else{
+			z--;
+			if(level.required){
+				r = level.required;
+				if(progress < r){
+					opac -= 32;
+				}
+			}
+			s += `</div><div class="levelrow">`
+		}
+	}
+	s += `</div>`
+	document.getElementById("game").innerHTML = s;
+	document.getElementById("MAINMENU").onclick = () => {
+		loadmainmenu(0)
+
+	}
+}
+
+loadending = () => {
+	document.getElementById("game").innerHTML = `
+	<div class = "little">PROGRESS: ${progress}✔</div>
+	<button class = "little topright2" id = "LEVELMAP"> LEVELMAP </button> 
+	<button class = "little topright" id = "MAINMENU"> MAINMENU </button> <br>
+	<div> GAMEBEAT </div>
+	<div> YOUDIDIT </div>
+	<div> GREATJOB </div>
+	<div> THANKYOU </div>
+
+	`
+
+	document.getElementById("LEVELMAP").onclick = () => {
+		loadlevelmenu()
+
+	}
+
+	document.getElementById("MAINMENU").onclick = () => {
+		loadmainmenu()
+
+	}
+}
+
+
+loadlevel = (i) => {
+	if(!levels[i].gram){
+		loadlevelmenu();
+		return;
+	}
+	document.getElementById("game").innerHTML = `
+	<div class = "little">PROGRESS: ${progress}✔</div>
+	<button class = "little topright2" id = "LEVELMAP"> LEVELMAP </button> 
+	<button class = "little topright" id = "MAINMENU"> MAINMENU </button> <br>
+	<div> ${levels[i].gram} </div>
+	<input id = "input"> </input><br>
+	<div>
+	<button class = "little ${i>0 && levels[i-1].gram?"":"greyed"}" id = "PREVIOUS" style="position: relative;top: 50%;transform: translateY(-50%);"> ← PREVIOUS </button> 
+	${levels[i].z}
+	<button class = "little ${levels[i].gram != "FINALLVL" && levels[i+1].gram?"":"greyed"}" id = "ULTERIOR" style="position: relative;top: 50%;transform: translateY(-50%);"> ULTERIOR → </button>
+	</div>
+	
+
+	`
+	document.getElementById("input").focus();
+	document.getElementById("input").onchange = (e) => {
+		if(levels[i].ans.split(',').includes(e.target.value.toLowerCase()) || (levels[i].gram=="DDXXSINX" &&  e.target.value.toLowerCase().includes("+") && e.target.value.toLowerCase().includes("sin") &&  e.target.value.toLowerCase().includes("cos")) || (levels[i].gram == "BEEMOVIE" && e.target.value.toLowerCase().includes("it one of your special skills"))){
+			bootout = false;
+			if(!levels[i].completed){
+				progress++;
+
+				for(level of levels){
+					if(level.required == progress) bootout = true;
+				}
+			}
+			levels[i].completed = true;
+			save();
+			if(levels[i].gram == "FINALLVL") loadending();
+			else loadlevel(i+1);
+		}else{
+			e.target.value = "";
+		}
+	}
+
+	document.getElementById("LEVELMAP").onclick = () => {
+		loadlevelmenu()
+
+	}
+
+	document.getElementById("MAINMENU").onclick = () => {
+		loadmainmenu()
+
+	}
+
+	document.getElementById("PREVIOUS").onclick = () => {
+		if(i>0 && levels[i-1].gram)loadlevel(i-1)
+
+	}
+
+	document.getElementById("ULTERIOR").onclick = () => {
+		if(levels[i].gram != "FINALLVL" && levels[i+1].gram)loadlevel(i+1)
+
+	}
+}
+
+loadsettings = () => {
+	document.getElementById("game").innerHTML = `
+	<div> PROGRESS: ${progress}✔ </div>
+	<button class = "menubut"id="CLEARALL"> CLEARALL </button>
+	<button class = "menubut"id="MAINMENU"> MAINMENU </button>
+	`
+
+	document.getElementById("CLEARALL").onclick = () => {
+		progress = 0;
+		for(level of levels){
+			if(level.gram){
+				level.completed = false;
+				level.unlocked = false;
+			}
+		}
+		levels[0].unlocked = true;
+		loadsettings();
+	}
+
+	document.getElementById("MAINMENU").onclick = () => {
+		loadmainmenu(0)
+
+	}
+}
+
+loadcredits = () => {
+	document.getElementById("game").innerHTML = `
+	<div> <b> CREDITTO</b></div>
+	<div> GAMEJACK </div>
+	<div> PUZOMEGA </div>
+	<div class = "medium"> TRYSUNNY </div><br>
+
+	<button id="MAINMENU"> MAINMENU </button>
+	`
+
+	document.getElementById("MAINMENU").onclick = () => {
+		loadmainmenu(0)
+
+	}
+}
+
+loadmainmenu = () => {
+	document.getElementById("game").innerHTML = `
+	<div> OCTOGRAM </div>
+	<button class = "menubut" id = "PLAYGAME"> PLAYGAME</button>
+	<button class = "menubut ${progress == 0?"greyed":""}" id = "CONTINUE"> CONTINUE</button>
+	<button class = "menubut" id = "SETTINGS"> SETTINGS</button>
+	<button class = "menubut" id = "MOREINFO"> MOREINFO</button>
+	`
+
+	document.getElementById("PLAYGAME").onclick = () => {
+		loadlevelmenu(0)
+
+	}
+
+	document.getElementById("CONTINUE").onclick = () => {
+		if(progress > 0) loadlevelmenu(0)
+
+	}
+
+document.getElementById("SETTINGS").onclick = () => {
+		loadsettings()
+
+	}
+
+	document.getElementById("MOREINFO").onclick = () => {
+		loadcredits(0)
+
+	}
+}
+
+loadmainmenu();
+
+
+
+</script>
+</html>
