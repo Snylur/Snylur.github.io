@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Manual CAPTCHA UI Clone</title>
+    <script>window.MathJax={tex:{inlineMath:[['$','$']]}};</script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            color: #333;
+        }
+        .wrap {
+            max-width: 420px;
+            width: 100%;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            padding: 16px;
+        }
+        h1 { font-size: 16px; margin: 0 0 10px; color:#555 }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 6px;
+            margin: 10px 0;
+        }
+        .cell {
+            position: relative;
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .cell:hover { border-color: #bbb; }
+        .cell.selected { border-color: #4285f4; }
+        .order-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 6px;
+            font-size: 12px;
+            color: #fff;
+            background: #4285f4;
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+        .status {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        button {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:disabled {
+            background: #e0e0e0;
+            color: #888;
+            cursor: default;
+        }
+        button.enabled {
+            background: #4285f4;
+            color: #fff;
+        }
+        .hidden { display:none }
+        #cert { text-align:center; margin-top:20px }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>unCAPTCHA — Level <span id="lvl">1</span> of 5</h1>
+    <div class="board" id="board"></div>
+    <div class="status" id="status"></div>
+    <button id="submitBtn" disabled>Submit</button>
+    <div id="cert" class="hidden">
+        <h2>Certified Human</h2>
+        <p>Completed all levels on <span id="date"></span></p>
+    </div>
+</div>
+<script>
+    const baseOrder = [1,2,3,4,5,6,7,8,9]
+    const levels = [
+        { formulas:["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+        { formulas:["2", "3", "5", "12", "34", "56", "78", "123", "456"]},
+        { formulas:["-32", "-4", "0", "76", "78", "523", "4,269", "5,678", "54,321"]},
+        { formulas:["90 - 24", "23 + 45", "69", "35 \\div 7 \\times 14", "6,532 \\div 92", "8 \\times 9", "24 + 7^2", "|26 - 100|", "\\infty"]},
+        { formulas:["\\frac{4}{5}", "\\frac{65}{81}", "\\frac{78}{97}", "\\frac{17}{21}", "\\frac{13}{16}", "\\frac{48}{59}", "\\frac{22}{27}", "\\frac{40}{49}", "\\frac{49}{60}"]},
+    ]
+
+    let level=4
+    let selected=[]
+
+    const board=document.getElementById('board')
+    const status=document.getElementById('status')
+    const lvl=document.getElementById('lvl')
+    const submitBtn=document.getElementById('submitBtn')
+    const cert=document.getElementById('cert')
+    const date=document.getElementById('date')
+
+    function shuffle(arr){
+        return arr.map(v=>({v,sort:Math.random()}))
+            .sort((a,b)=>a.sort-b.sort)
+            .map(({v})=>v)
+    }
+
+    function loadLevel(n){
+        board.innerHTML=''
+        selected=[]
+        lvl.textContent=n+1
+        status.textContent='Select all squares in increasing order'
+        submitBtn.disabled=true
+        submitBtn.classList.remove('enabled')
+
+        const formulas = shuffle(levels[n].formulas.map((f,i)=>({tex:f,val:i+1})))
+
+        formulas.forEach(item=>{
+            const d=document.createElement('div')
+            d.className='cell'
+            d.dataset.val=item.val
+            d.innerHTML=`$${item.tex}$`
+            d.onclick=()=>toggleCell(d,item.val)
+            board.appendChild(d)
+        })
+        if(window.MathJax?.typesetPromise) MathJax.typesetPromise([board])
+    }
+
+    function toggleCell(el,val){
+        const idx=selected.indexOf(val)
+        if(idx===-1){
+            selected.push(val)
+            el.classList.add('selected')
+            const badge=document.createElement('div')
+            badge.className='order-badge'
+            badge.textContent=selected.length
+            el.appendChild(badge)
+        } else if(idx===selected.length-1){
+            selected.pop()
+            el.classList.remove('selected')
+            el.querySelector('.order-badge')?.remove()
+        } else return
+        renumberBadges()
+        submitBtn.disabled=(selected.length!==9)
+        submitBtn.classList.toggle('enabled', selected.length===9)
+    }
+
+    function renumberBadges(){
+        selected.forEach((val,i)=>{
+            const cell=[...board.children].find(c=>+c.dataset.val===val)
+            const badge=cell.querySelector('.order-badge')
+            if(badge) badge.textContent=i+1
+        })
+    }
+
+    submitBtn.onclick=()=>{
+        if(submitBtn.disabled) return
+        if(JSON.stringify(selected)===JSON.stringify(baseOrder)){
+            level++
+            if(level>=levels.length) finish()
+            else loadLevel(level)
+        } else loadLevel(level)
+    }
+
+    function finish(){
+        board.innerHTML=''
+        submitBtn.classList.add('hidden')
+        status.textContent=''
+        cert.classList.remove('hidden')
+        date.textContent=new Date().toLocaleString()
+    }
+
+    loadLevel(level)
+</script>
+</body>
+</html>
