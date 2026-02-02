@@ -3918,7 +3918,7 @@ const Kt = [{
         extra: "阿数字"
     }, {
         id: 81,
-        gram: "今年根",
+        gram: "去年根",
         ans: "45",
         extra: "阿数字"
     }, {
