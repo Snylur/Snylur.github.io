@@ -150,6 +150,18 @@ function updateSeeds() {
 }
 
 // ---------- spawn ----------
+function weightedChoice(values) {
+  let weights = values.map(v => v); // linear: weight = value
+  let total = weights.reduce((a, b) => a + b, 0);
+
+  let r = Math.random() * total;
+
+  for (let i = 0; i < values.length; i++) {
+    if (r < weights[i]) return values[i];
+    r -= weights[i];
+  }
+}
+
 function spawn() {
   updateSeeds();
 
@@ -163,8 +175,8 @@ function spawn() {
   if (!empty.length) return false;
 
   let [x, y] = empty[Math.floor(Math.random() * empty.length)];
-  let choices = [...seeds, 1];
-  grid[x][y] = choices[Math.floor(Math.random() * choices.length)];
+  let choices = [1, ...seeds];
+  grid[x][y] = weightedChoice(choices);
   return true;
 }
 
