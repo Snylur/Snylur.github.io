@@ -51,7 +51,7 @@ function render() {
     const tr = document.createElement("tr");
     for (let cell of row) {
       const td = document.createElement("td");
-      td.textContent = cell || ".";
+      td.textContent = cell || "";
       tr.appendChild(td);
     }
     table.appendChild(tr);
