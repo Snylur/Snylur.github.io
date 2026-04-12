@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- ai-generated based on my python version -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GCD Grid Game</title>
+<style>
+  body {
+    font-family: monospace;
+    background: #111;
+    color: #0f0;
+    text-align: center;
+  }
+  table {
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  td {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #0f0;
+    font-size: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h2>GCD Grid Game (W/A/S/D or Arrow Keys)</h2>
+<div id="seeds"></div>
+<div id="score"></div>
+<table id="grid"></table>
+
+<script>
+let grid = Array.from({ length: 4 }, () => Array(4).fill(0));
+let score = 0;
+let seeds = [];
+
+// ---------- math ----------
+function gcd(a, b) {
+  while (b !== 0) [a, b] = [b, a % b];
+  return a;
+}
+
+// ---------- render ----------
+function render() {
+  const table = document.getElementById("grid");
+  table.innerHTML = "";
+
+  for (let row of grid) {
+    const tr = document.createElement("tr");
+    for (let cell of row) {
+      const td = document.createElement("td");
+      td.textContent = cell || ".";
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+
+  document.getElementById("score").textContent = "Score: " + score;
+  document.getElementById("seeds").textContent =
+    "Seeds: " + JSON.stringify([1, ...seeds]);
+}
+
+// ---------- rotation (90° clockwise) ----------
+function rotate(g) {
+  let reversed = g.slice().reverse();
+  return reversed[0].map((_, i) => reversed.map(row => row[i]));
+}
+
+// ---------- drop logic ----------
+function drop(line) {
+  let p = 0;
+
+  // shift left
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (!line[j] && line[j + 1]) {
+        [line[j], line[j + 1]] = [line[j + 1], line[j]];
+      }
+    }
+  }
+
+  // merge
+  for (let j = 0; j < 3; j++) {
+    if (
+      line[j] &&
+      line[j + 1] &&
+      gcd(line[j], line[j + 1]) === Math.min(line[j], line[j + 1])
+    ) {
+      p += Math.min(line[j], line[j + 1]);
+      line[j] += line[j + 1];
+      line[j + 1] = 0;
+    }
+  }
+
+  // shift again
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (!line[j] && line[j + 1]) {
+        [line[j], line[j + 1]] = [line[j + 1], line[j]];
+      }
+    }
+  }
+
+  return [line, p];
+}
+
+// ---------- movement ----------
+function move(op) {
+  let g = grid.map(r => [...r]);
+
+  // rotate so movement becomes LEFT
+  const rotMap = { w: 3, a: 0, s: 1, d: 2 };
+  let r = rotMap[op];
+
+  for (let i = 0; i < r; i++) g = rotate(g);
+
+  let total = 0;
+  g = g.map(row => {
+    let [nr, p] = drop([...row]);
+    total += p;
+    return nr;
+  });
+
+  // rotate back
+  for (let i = 0; i < (4 - r) % 4; i++) g = rotate(g);
+
+  return [g, total];
+}
+
+// ---------- seeds ----------
+function updateSeeds() {
+  let numbers = grid.flat().filter(x => x !== 0);
+
+  seeds = seeds.filter(seed =>
+    numbers.every(n => n % seed === 0)
+  );
+
+  let newer = [];
+  for (let number of numbers) {
+    let temp = number;
+    for (let s of seeds) {
+      while (temp % s === 0) temp /= s;
+    }
+    if (temp !== 1) newer.push(temp);
+  }
+
+  seeds = [...new Set([...seeds, ...newer])].sort((a, b) => a - b);
+}
+
+// ---------- spawn ----------
+function spawn() {
+  updateSeeds();
+
+  let empty = [];
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+      if (!grid[i][j]) empty.push([i, j]);
+    }
+  }
+
+  if (!empty.length) return false;
+
+  let [x, y] = empty[Math.floor(Math.random() * empty.length)];
+  let choices = [...seeds, 1];
+  grid[x][y] = choices[Math.floor(Math.random() * choices.length)];
+  return true;
+}
+
+// ---------- valid moves ----------
+function validMoves() {
+  return ["w", "a", "s", "d"].filter(op => {
+    let [g] = move(op);
+    return JSON.stringify(g) !== JSON.stringify(grid);
+  });
+}
+
+// ---------- game over ----------
+function gameOver() {
+  if (validMoves().length === 0) {
+    alert("Game Over! Score: " + score);
+    document.removeEventListener("keydown", handleKey);
+  }
+}
+
+// ---------- input (UPDATED) ----------
+function handleKey(e) {
+  const keyMap = {
+    w: "w",
+    a: "a",
+    s: "s",
+    d: "d",
+    ArrowUp: "w",
+    ArrowLeft: "a",
+    ArrowDown: "s",
+    ArrowRight: "d"
+  };
+
+  let key = keyMap[e.key];
+  if (!key) return;
+
+  e.preventDefault();
+
+  let [newGrid, gained] = move(key);
+  if (JSON.stringify(newGrid) === JSON.stringify(grid)) return;
+
+  grid = newGrid;
+  score += gained;
+
+  spawn();
+  render();
+  gameOver();
+}
+
+// ---------- init ----------
+spawn();
+render();
+document.addEventListener("keydown", handleKey);
+</script>
+
+</body>
+</html>
+
