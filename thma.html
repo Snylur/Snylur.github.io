@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>THMA Quiz</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #f4f4f4;
+    padding: 20px;
+  }
+
+  h1 { text-align: center; }
+
+  .question {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #555;
+  }
+
+  button {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  #result {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>What’s Your Dream Calculator?</h1>
+
+<form id="quiz"></form>
+
+<button onclick="calculateResult()">Get Result</button>
+
+<div id="result" style="display:none;"></div>
+
+<script>
+const questions = [
+  "I enjoy solving complex problems",
+  "I prefer visual tools",
+  "I like automation",
+  "I enjoy customization",
+  "I like learning new systems",
+  "I prefer simple tools",
+  "I enjoy programming",
+  "I like structured workflows",
+  "I prefer speed over detail",
+  "I enjoy experimenting",
+  "I rely on intuition",
+  "I prefer hands-on tools",
+  "I like step-by-step explanations",
+  "I value efficiency",
+  "I enjoy exploring graphs",
+  "I like reliability",
+  "I prefer minimalism",
+  "I enjoy deep analysis",
+  "I like interactive learning",
+  "I prefer traditional methods"
+];
+
+const form = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+  const div = document.createElement("div");
+  div.className = "question";
+  div.innerHTML = `
+    <p>${i+1}. ${q}</p>
+    <input type="range" min="-3" max="3" value="0" name="q${i}">
+    <div class="labels">
+      <span>Strongly Disagree</span>
+      <span>Neutral</span>
+      <span>Strongly Agree</span>
+    </div>
+  `;
+  form.appendChild(div);
+});
+
+const calculators = [
+  {
+    code:"DES-MOS",
+    name:"Desmos",
+    desc:`You gravitate toward clarity and visual intuition. Desmos reflects a mindset that values immediate feedback, where equations come alive through graphs and transformations. Instead of treating math as static symbols, you see it as something dynamic and interactive.
+
+You prefer tools that remove friction. Clean interfaces, minimal setup, and the ability to explore ideas quickly matter more than raw computational power. You’re likely someone who learns by seeing patterns rather than memorizing steps.
+
+In practice, this means you thrive when concepts are visualized. Whether you're exploring functions or experimenting with models, your ideal environment is one where math feels intuitive, responsive, and even playful.`
+  },
+  {
+    code:"WOLF-A",
+    name:"WolframAlpha",
+    desc:`You aim for depth and precision. WolframAlpha represents a mindset that values authoritative answers and computational strength. You’re not just solving problems—you’re extracting knowledge.
+
+You prefer systems that handle complexity effortlessly. Rather than manually working through every step, you want a tool that understands the intent behind your question and delivers comprehensive results.
+
+This reflects a results-oriented approach. You trust powerful engines and value correctness, completeness, and insight over process.`
+  },
+  {
+    code:"PYTH-ON",
+    name:"Python",
+    desc:`You prioritize flexibility above all else. Python represents a mindset that sees tools as something to build, not just use. You prefer complete control over how problems are approached and solved.
+
+You’re comfortable with complexity when it enables customization. Writing code, structuring logic, and automating workflows are not obstacles—they’re opportunities.
+
+In the long run, this mindset allows you to scale your capabilities. Instead of relying on predefined tools, you create systems tailored exactly to your needs.`
+  },
+  {
+    code:"TI-84",
+    name:"TI-84 Plus CE",
+    desc:`You value reliability and familiarity. The TI-84 represents a balanced approach: capable, structured, and widely trusted. It’s not about extremes—it’s about consistency.
+
+You prefer tools that are proven and dependable. You don’t need the newest or most experimental option—you want something that works every time.
+
+This mindset reflects practicality. You aim for steady performance and predictable outcomes rather than constant reinvention.`
+  }
+];
+
+function calculateResult() {
+  const data = new FormData(form);
+  let vals = [...data.values()].map(Number);
+
+  if (vals.length < 20) {
+    alert("Please answer all questions.");
+    return;
+  }
+
+  let scores = calculators.map(c => 0);
+
+  vals.forEach((v, i) => {
+    scores.forEach((_, j) => {
+      scores[j] += v * (Math.random()*0.5 + 0.5); 
+    });
+  });
+
+  let maxIndex = scores.indexOf(Math.max(...scores));
+  let res = calculators[maxIndex];
+
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "block";
+  resultDiv.innerHTML = `
+    <h2>Your Dream Calculator: ${res.code} (${res.name})</h2>
+    <p>${res.desc}</p>
+  `;
+}
+</script>
+
+</body>
+</html>
