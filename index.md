@@ -2,6 +2,8 @@
 
 ## Who am I? 
 
+If you're just here for the résumé: Click [here](https://snylur.github.io/resume.pdf). 
+
 Hi! I'm Sunny, and my legal name is Chang Lu. Some basic stats: 
 
 - **Age:** 17
@@ -32,11 +34,10 @@ I'm a general enthusiast in a lot of things! Non-exhaustive list:
 
 - [:Puzzles](#Puzzles)
 - [:Mathematics](#Mathematics)
-- Programming
-- Rationality
-- Writing
-- Linguistics
-- Psychology
+- [:Programming](#Programming)
+- [:Rationality](#Rationality)
+- [:Writing](#Writing)
+- [:Linguistics](#Linguistics)
 
 ## :x Puzzles
 
@@ -46,7 +47,47 @@ I contribute to [PUZZDLE](https://puzzdle.net), which is a puzzle site featuring
 
 ## :x Mathematics
 
-Mathematics is my special interest! 
+Mathematics is my special interest! I've went a variety of mathematics contests like HMMT, SMT, DMM, BMT, and Yale math competition, so you might have met me somewhere there. Similarly, I have also attended Yau Math Camp and Ross Mathematics Program. 
+
+I love all kinds of mathematics, but particularly combinatorics and particularly not geometry, which is funny since my research work revolves around linkages and strengthenings of Kempe's Universality Theorem. I do a lot of recreational mathematics as well, and you can frequently see me doing weird stuff in general. I'm in the PowerPoint Vexillology Discord colony (a part of Arglin's server), so you'll see me appear with Arglin Kampling and Dr. Zye particularly often. For instance, I was hanging around in the clock stream! 
+
+You can find some mathematical content on my [YouTube channel](https://www.youtube.com/@numberbashersunny), particularly under the collaborations section. 
+
+I work for [starmathcat](https://www.youtube.com/@starmathcat), helping write some of his worksheets! I'm also open to (online) tutoring positions — [send me an email](mailto:luchang1106@icloud.com)! 
+
+## :x Programming
+
+I program! Here's my [GitHub page](https://github.com/Snylur), and a [banished account](https://github.com/TvoozMagnificent). I am extremely skilled in Python, and especially in esoteric ways of programming, especially [code golfing](https://codegolf.stackexchange.com/users/111945/numberbasher) and [code obfuscation](https://pyobfusc.com/submissions2024/1843333336/). Most of my work is in Python. 
+
+Other than that, I participated in Professor Rajiv Gandhi's [Program in Algorithmic and Combinatorial Thinking](https://algorithmicthinking.org) Year-Round and repeated as a Group II student / TA. Afterwards, Professor Rajiv Gandhi allowed me to audit University of Pennsylvania' CIS 160 and CIS 121, as well as Princeton University's COS 126. These courses allowed me to learn Java. 
+
+I am also very familiar with $\LaTeX$, as well as Desmos. When contributing to the [HeXO Renderer open source project](https://github.com/Snylur/HeXO-Renderer), I also learned the bare minimum of Kotlin. 
+
+## :x Rationality
+
+I am somewhat interested in rationality. You should definitely check out [Harry Potter and the Methods of Rationality](https://www.hpmorcomic.com)! (Linked is the manga adaptation. The original text can be found [here](https://hpmor.com). I went to ESPR in 2025, if that says anything about me. 
+
+## :x Writing
+
+"The first words are the hardest among a writer’s journey."
+
+Why do I write? This question presents itself to me, and I struggle to answer it. Maybe it is for relaxation. Maybe it is for reflection. Maybe it is for naught, after all. 
+
+Yet to me, writing is an escape, a way to transport to an alternate world where you can do anything, everything — without consequences. There is one fundamental purpose to write: to imagine, to create, to explore, to be free. And sometimes, when the things in the real world come hard to bear, an alternative springs up to mind. 
+
+Every piece of writing is a realization — the realization that there are things which could have happened that did not, that there is a plausible parallel to every plot, a tangible terrain to every turn. Every piece of writing is a beginning, the start of something revolutionary. 
+
+Every piece of writing is a realization — the realization of that alternative world, putting every thought and every imagination into literal literary existence, transforming every creation to concrete words. Every piece of writing is a conclusion, the end of something revolutionary. 
+
+So we write. We dance beneath the shining light, mastering our every might, and write.
+
+This sounds interesting? This is an abandoned project, but you can read whatever has been completed [here](https://numbas.notion.site/kerut-nevodaq). 
+
+## :x Linguistics
+
+*toki a! mi ken toki pona lili. sina o toki tawa mi kepeken toki pona, la mi ken pona e toki pona mi a!* 
+
+I honestly don't know much about linguistics, but I am a general enthusiast in the interesting puzzles it provides. I want to make a conlang at some point, but I don't know where to start. 
 
 ## :x My Online Presence
 
@@ -212,3 +253,5 @@ On Discord:
 - *Not in the forseeable future. I might return it after I graduate or something, or as a guest if they want me to.* 
 - What's a question you wish more people asked you?
 - *I would want more genuinely philosophical questions, and such meta answers are also really well-received. For instance, some people asked me what the meaning of life is, or what I think about the impact of LLMs on the role mathematics plays in education.* 
+
+If you've read all the way till here, either you just scrolled to the bottom or you're really interested in me! If it's the latter, thank you! If you have any questions, feel free to ask through my Discord or E-mail! 
