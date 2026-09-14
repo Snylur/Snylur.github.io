@@ -18,6 +18,7 @@ Nutshell.setOptions({
   --bg:    #000;
   --ink:   #33ff33;
   --dim:   #16b016;
+  --quote: #0e8f0e;
   --panel: #050d05;
   --accent:#7cff7c;
   color-scheme: dark;
@@ -84,11 +85,22 @@ pre{
 }
 pre code{ background:none; padding:0; }
 
-blockquote{
+/* quoted/indented text: darker green, never grey.
+   the !important is there to beat renderers & themes that force quotes grey. */
+blockquote,
+.markdown-body blockquote,
+.nutshell-bubble blockquote{
   margin:1.5rem 0;
   padding:.25rem 1rem;
   border-left:2px solid var(--dim);
-  color: var(--dim);
+  background:transparent;
+  color: var(--quote) !important;
+}
+blockquote p,
+blockquote li,
+blockquote em,
+.nutshell-bubble blockquote p{
+  color: var(--quote) !important;
 }
 
 hr{ border:0; border-top:1px solid var(--dim); }
@@ -129,7 +141,10 @@ ul > li::before{
 .nutshell-bubble code{ background:#0a1f0a; color:inherit; }
 .nutshell-bubble blockquote{ border-left-color: var(--dim); }
 .nutshell-bubble-from,
-.nutshell-followup{ color: var(--dim); }
+.nutshell-followup{
+  color: var(--quote);
+  opacity:.9;
+}
 
 /* the little black icons need inverting to show up on black */
 .nutshell-heading-embed img,
@@ -376,6 +391,10 @@ On WeChat, I got the following responses:
 - *No. Otherwise, I can build a turing machine that decides if itself halts, and halts iff it doesn't halt.* 
 - What is a belief of yours that you think is quite different from most of your peers?
 - *I believe that everyone is intrinsically selfish, and also that that is completely fine and valid.* 
+- Do you think you have free will? 
+- *I don't know...? I don't completely know how to define free will in a way that doesn't simply trivialize the problem. By process of elimination, however, I would rather believe that we do have free will.* 
+- Were you always aromantic asexual? Did you ever have a crush? 
+- *I think I was always asexual; I'm less sure about aromantic. I wouldn't say I've ever had a crush. My queerness has led to me being close friends with both boys and girls, but I think there is a meaningful difference between this kind of friendship and any kind of romantic (or for that matter, sexual) desire. I don't think I ever will get a significant other, and I simply can't imagine myself having sex. Of course, I do very much believe in platonic relationships.* 
 
 On Discord: 
 
