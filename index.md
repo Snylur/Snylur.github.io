@@ -372,6 +372,10 @@ On WeChat, I got the following responses:
 - *I don't think there's much to it, honestly. I'm not familiar with any trans-exclusive communities (though I guess the fact that I am nonbinary makes me "trans" by its definition), so I can't say about that. I am active in a lot of communities which happen to be trans-heavy (like a lot of math servers), and in general these communities are more wholesome than average. I'm aware and not surprised by the existence of trans communities and specifically mtf trans communities as well, especially since a lot of stuff can be specific (GAHT, mtf voice training) to these communities.* 
 - If you had a choice, how would you present yourself? 
 - *Exactly how I present myself right now! I don't really like the way the universe is shape what I am, at least not in any restricting way. I might envision a universe where I'm a therian, I guess.* 
+- Can we find a Turing halting machine that determines whether a program will halt in finite time?
+- *No. Otherwise, I can build a turing machine that decides if itself halts, and halts iff it doesn't halt.* 
+- What is a belief of yours that you think is quite different from most of your peers?
+- *I believe that everyone is intrinsically selfish, and also that that is completely fine and valid.* 
 
 On Discord: 
 
