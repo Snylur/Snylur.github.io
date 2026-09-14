@@ -1,4 +1,157 @@
+---
+title: Sunny "Number Basher" Lu
+---
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+
 <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
+<script>
+Nutshell.setOptions({
+  dontEmbedHeadings: true
+});
+</script>
+
+<style>
+/* ---------- base: pure black, green mono, one rectangle ---------- */
+:root{
+  --bg:    #000;
+  --ink:   #33ff33;
+  --dim:   #16b016;
+  --panel: #050d05;
+  --accent:#7cff7c;
+  color-scheme: dark;
+}
+
+html{ background: var(--bg); }
+
+body{
+  max-width: 80ch;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  text-shadow: 0 0 2px rgba(51,255,51,.35);
+  box-shadow: 0 0 30px rgba(51,255,51,.12);
+}
+
+@media (max-width: 700px){
+  body{ margin:0; border-width:0; padding:1.25rem; }
+}
+
+/* blinking block cursor after the last line */
+body::after{
+  content:"\258C";
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* ---------- headings ---------- */
+h1,h2,h3,h4{ font-weight:600; letter-spacing:.02em; }
+h1{ font-size:1.35rem; }
+h2{ font-size:1.15rem; }
+h3{ font-size:1rem; }
+h4{ font-size:1rem; color:var(--accent); }
+
+h1::before,h2::before{
+  content:"> ";
+  color: var(--dim);
+}
+
+/* ---------- text ---------- */
+a{
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--dim);
+  text-underline-offset: 3px;
+}
+a:hover{
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+}
+strong{ color: var(--accent); }
+
+code,pre,kbd,samp{ font-family: inherit; }
+code{ background:#0a1f0a; padding:.1em .35em; }
+pre{
+  background: var(--panel);
+  border: 1px solid var(--dim);
+  padding: 1rem;
+  overflow-x:auto;
+}
+pre code{ background:none; padding:0; }
+
+blockquote{
+  margin:1.5rem 0;
+  padding:.25rem 1rem;
+  border-left:2px solid var(--dim);
+  color: var(--dim);
+}
+
+hr{ border:0; border-top:1px solid var(--dim); }
+
+table{ border-collapse:collapse; }
+th,td{ border:1px solid var(--dim); padding:.35rem .6rem; }
+img{ max-width:100%; }
+
+ul{ list-style:none; padding-left:1.5em; }
+ul > li::before{
+  content:"-";
+  display:inline-block;
+  width:1.5em;
+  margin-left:-1.5em;
+  color: var(--dim);
+}
+
+::selection{ background:var(--ink); color:var(--bg); }
+
+/* ---------- nutshell: expandable links & bubbles ---------- */
+.nutshell-expandable{
+  border-bottom: 1px dotted var(--dim);
+}
+.nutshell-ball-up,
+.nutshell-ball-down{
+  background: var(--ink);
+}
+
+.nutshell-bubble{
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--panel);
+}
+.nutshell-bubble-arrow{
+  border-bottom-color: var(--ink);
+  --arrow-background: var(--panel);
+}
+.nutshell-bubble code{ background:#0a1f0a; color:inherit; }
+.nutshell-bubble blockquote{ border-left-color: var(--dim); }
+.nutshell-bubble-from,
+.nutshell-followup{ color: var(--dim); }
+
+/* the little black icons need inverting to show up on black */
+.nutshell-heading-embed img,
+.nutshell-bubble-overflow-embed-button img,
+.nutshell-bubble-overflow-close img{
+  filter: invert(1) sepia(1) saturate(6) hue-rotate(65deg);
+}
+
+#nutshell-close-all{
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+}
+
+.nutshell-embed-modal{ background: rgba(0,0,0,.85); }
+#nutshell-embed-modal-bubble{
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+</style>
 
 ## Who am I? 
 
