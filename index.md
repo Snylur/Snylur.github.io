@@ -352,6 +352,10 @@ On WeChat:
 - You are good at mathematics
 - You discovered a game-breaking meta in Fork Five
 - You do a lot of mathematics
+- You have a fountain of energy and confidence that never seems to drain, even on low days
+- You seem to present your authentic self everywhere
+- Your interpretation of life is intriguing and poetic
+- You can jump into stuff like puzzles, games, quizzes, etc. without practicing
 
 ## :x Ask Me Anything
 
@@ -395,6 +399,10 @@ On WeChat, I got the following responses:
 - *I don't know...? I don't completely know how to define free will in a way that doesn't simply trivialize the problem. By process of elimination, however, I would rather believe that we do have free will.* 
 - Were you always aromantic asexual? Did you ever have a crush? 
 - *I think I was always asexual; I'm less sure about aromantic. I wouldn't say I've ever had a crush. My queerness has led to me being close friends with both boys and girls, but I think there is a meaningful difference between this kind of friendship and any kind of romantic (or for that matter, sexual) desire. I don't think I ever will get a significant other, and I simply can't imagine myself having sex. Of course, I do very much believe in platonic relationships.* 
+- Does it feel tiring presenting yourself as "Sunny Chang 'Number Basher' Lu" everywhere in your life? 
+- *Yah, kind of. I never felt like I was ever even capable of shaping who I am for different people; I can try to put on a specific state of mind (or, as some may call, emotion), but I cannot fundamentally change or alter the appearance of my personality, or effectively put on a mask. I think it's possible that the current Sunny is some form of mask, but I don't know and it's definitely not something I consciously do. I never found it tiring, but there were some cases where I wish I could just be someone else / put on a different face.* 
+- How did you develop such a strong intuition for things such as mathematics? 
+- *Exposure and engagement. Exposure is the part where I watch YouTube videos, listen to online courses, and see interesting ideas unfold in front of me. These teach me fundamental ways of thinking about things. This is especially easy for me because I am simply fascinated by all of these mathematical objects, and so I want to learn more. For instance, when I was in around seventh or eighth grade, I read "The Curious Incident of the Dog in the Night-Time" for the first time, and instead of analyzing the characters and the plot like a normal human being, I decided to hyperfixate on the specific game of Conway's Soldiers, under which lies the fundamental concept of invariants that applies to a lot of math problems. But exposure is not enough; you also need engagement, which is where you actually go ahead and solve problems. These can be contest problems, but those in general only make you better at contests, and weakly correlates with true mathematical skill. I typically focus on mathematical puzzles, random questions I find online that I just attempt to solve, and the occasional question I just ponder or a friend just raises up to me. Honestly, this exposure-engagement guideline applies quite universally. I learned programming because I was exposed really young to what it can do, then did extensive programming in Scratch and Python. Honestly, the root of both exposure and engagement for me is curiosity, but that's probably not the only way.* 
 
 On Discord: 
 
