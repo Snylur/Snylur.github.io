@@ -261,7 +261,7 @@ I honestly don't know much about linguistics, but I am a general enthusiast in t
 
 You can pretty much find me as Number Basher online pretty consistently! My discord is `sunny_lu_89`, and my E-mail is `luchang1106@icloud.com`. 
 
-You can find me as [Sunny "Number Basher" Lu](https://www.youtube.com/@numberbashersunny) on YouTube, where I make a weird assortment of content which you may find interesting if you're a nerd. If you're into mathematics, particularly check out my collaborations with 3cycle. I also moderate [Dr. Zye's channel](https://www.youtube.com/@DrZye) and commentated along his 60-hour stream series. 
+You can find me as [Sunny "Number Basher" Lu](https://www.youtube.com/@numberbashersunny) on YouTube, where I make a weird assortment of content which you may find interesting if you're a nerd. If you're into mathematics, particularly check out my collaborations with [3cycle](https://www.youtube.com/@3cycle). I also moderate [Dr. Zye's channel](https://www.youtube.com/@DrZye) and commentated along his 60-hour stream series. 
 
 ## :x How Others Describe Me
 
