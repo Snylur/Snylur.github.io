@@ -356,6 +356,9 @@ On WeChat:
 - You seem to present your authentic self everywhere
 - Your interpretation of life is intriguing and poetic
 - You can jump into stuff like puzzles, games, quizzes, etc. without practicing
+- You have a sense of innocence
+- You have a brilliant mind
+- You have curiosity
 
 ## :x Ask Me Anything
 
@@ -438,6 +441,6 @@ On Discord:
 - Will you go back to Super Brain? 
 - *Not in the forseeable future. I might return it after I graduate or something, or as a guest if they want me to.* 
 - What's a question you wish more people asked you?
-- *I would want more genuinely philosophical questions, and such meta answers are also really well-received. For instance, some people asked me what the meaning of life is, or what I think about the impact of LLMs on the role mathematics plays in education.* 
+- *I would want more genuinely philosophical questions, and such meta answers are also really well-received. For instance, some people asked me what the meaning of life is, or what I think about the impact of LLMs on the role mathematics plays in education.*
 
 If you've read all the way till here, either you just scrolled to the bottom or you're really interested in me! If it's the latter, thank you! If you have any questions, feel free to ask through my Discord or E-mail! 
