@@ -186,6 +186,8 @@ Too many links and don't know where to start? Here's [:how others describe me](#
 
 Reach out to me at [luchang1106@icloud.com](mailto:luchang1106@icloud.com). 
 
+*psst: Check out [Fork](https://snylur.github.io/fork.pdf)! 
+
 ## :x My Queerness
 
 I don't generally elaborate much on my queerness, but if you want to stick some labels on me, I'm probably nonbinary, aromantic, and asexual. I use they/them pronouns. I'm a furry meow! 
