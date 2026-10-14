@@ -273,7 +273,7 @@ In March of 2026, I gave a survey to around 30 people asking:
 
 In September, I redid the survey and got slightly different results. 
 
-You can view the [:March 2026 results](#March2026Poll) and [:September 2026 results](#September2026results). 
+You can view the [:March 2026 results](#March2026Poll) and [:September 2026 results](#September2026Poll). 
 
 ## :x March 2026 Poll
 
@@ -340,7 +340,7 @@ On Discord:
 - You use intentionally unconventional language
 - You seem very enthusiastic about the concept of headspace
 
-## :x September 2026
+## :x September 2026 Poll
 
 On WeChat: 
 
