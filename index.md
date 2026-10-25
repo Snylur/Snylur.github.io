@@ -180,7 +180,7 @@ Hi! I'm Sunny, and my legal name is Chang Lu. Some basic stats:
 - **Year of Birth:** 2008
 - **Pronouns:** they/them
 
-I'm super [:queer](#MyQueerness), probably slightly [:neurodivergent](#Neurodivergence). I have a wide range of [:interests](#MyInterests). You can find me [:online](#MyOnlinePresence) as Number Basher sometimes. 
+I'm super [:queer](#MyQueerness), probably slightly [:neurodivergent](#Neurodivergence). I have a wide range of [:interests](#MyInterests). You can find me [:online](#MyOnlinePresence) as Number Basher sometimes. I've written some [:random papers (you should probably call them explainers)](#RandomPapers). 
 
 Too many links and don't know where to start? Here's [:how others describe me](#HowOthersDescribeMe), and [:what others asked me (and my responses)](#AskMeAnything). 
 
@@ -188,9 +188,15 @@ Reach out to me at [luchang1106@icloud.com](mailto:luchang1106@icloud.com).
 
 *psst: Check out [Fork](https://snylur.github.io/fork.pdf)!* 
 
+## :x Random Papers
+
+Sometimes I get carried away thinking about [when polyominos can tile squares](tiling.pdf), or [when polyomino can fold into uniform-thickness rectangles](folding.pdf), or [how complex the game of HeXO is](hexo.pdf), and I write it up. 
+
+I also [disprove of the puppet stayman bridge convention](stayman.pdf). 
+
 ## :x My Queerness
 
-I don't generally elaborate much on my queerness, but if you want to stick some labels on me, I'm probably nonbinary, aromantic, and asexual. I use they/them pronouns. I'm a furry meow! 
+I generally don't elaborate much on my queerness, but if you want to stick some labels on me, I'm probably nonbinary, aromantic, and asexual. I use they/them pronouns. I'm a furry meow! 
 
 Your gender and sexuality is equally valid! 
 
@@ -211,7 +217,7 @@ I'm a general enthusiast in a lot of things! Non-exhaustive list:
 
 ## :x Puzzles
 
-I do a little bit of physical puzzles (I almost collaborated with [GM 的秘密基地](https://www.youtube.com/@GM-bq6et)! Well, almost.) However, the vast majority of puzzles I do are pen-and-paper, or PDF puzzles. I helped make some puzzles for my friend Omega 3301's [Origami Puzzles](https://omega-3301.itch.io/origami-puzzles), and did playtesting for Blaž Gracar's [Herd](https://www.letibus.com/herd) and [Workworkwork](https://www.letibus.com/www) as well as the Potato Pirates co-op expansion. I've also made random puzzles in the past, some of which you can find under my [Puzzling Stack Exchange](https://puzzling.stackexchange.com/users/79896/numberbasher). 
+I do a little bit of physical puzzles. (I almost collaborated with [GM 的秘密基地](https://www.youtube.com/@GM-bq6et)! Well, almost.) However, the vast majority of puzzles I do are pen-and-paper, or PDF puzzles. I helped make some puzzles for my friend Omega 3301's [Origami Puzzles](https://omega-3301.itch.io/origami-puzzles), and did playtesting for Blaž Gracar's [Herd](https://www.letibus.com/herd) and [Workworkwork](https://www.letibus.com/www) as well as the Potato Pirates co-op expansion. I've also made random puzzles in the past, some of which you can find under my [Puzzling Stack Exchange](https://puzzling.stackexchange.com/users/79896/numberbasher). 
 
 I contribute to [PUZZDLE](https://puzzdle.net), which is a puzzle site featuring weekly puzzles. Similar, you can also find some of my puzzles on [Daily Akari](https://dailyakari.com). I also participated in puzzle hunts, and [mirrored one of my favorite puzzles](https://snylur.github.io/triddles). 
 
