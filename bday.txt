@@ -1,0 +1,242 @@
+# main.py
+
+from helper import World
+
+print("Hello, World! ")
+world = World("Earth")
+world.register_user("Sunny Lu", age=17)
+sunny = world.get_users_by_name("Sunny Lu")[0]
+sunny.set_age(18)
+age = sunny.get_age()
+assert age == 18, "Implementation failed to set age to 18. "
+
+from rich import print # you may have to install `rich`
+from time import sleep
+def roll_credits(credits, pause=0.5, extra_pause=1.5) -> bool: 
+  """
+  Display `credits` line by line, with `pause` seconds
+  of pause between each line, and `extra_pause` seconds
+  of pause at section break (a line containing only `=`
+  characters). Returns boolean status. 
+  """
+  try: 
+    for line in credits.split('\n'): 
+      print(line)
+      sleep(extra_pause if line == '=' * len(line) else pause)
+  except BaseException as e: 
+    print("[red]Error raised in [purple]roll_credits[/]. [/]")
+    return False
+  else: 
+    return True
+
+roll_credits(fr"""
+
+I don't normally write stuff for my birthday. 
+
+Last year, I was about to write one, 
+but I didn't really know what to write about. 
+
+But there's something specific about my
+{age}th birthday that makes it something monumental. 
+{age} is a nice number. It's a Christmas tree number, 
+because {2 * 3**2 = }. Every prime which is equivalent
+to 3 mod 4 occurs an even number of times, so by
+Fermat's Christmas Theorem, it can be written as the
+sum of two squares, namely {3**2 + 3**2 = }. 
+
+I'm not really sure why {age} is of such importance, 
+but sure enough it does. And this year, it hit different. 
+There's something distinct about the time period
+from 2025 nov to 2026 nov that is just so surreal. 
+
+==========================================================
+
+| Gratitude
+
+If there's one thing I've learned, it's gratitude. 
+This year, I interacted with a lot of people online, 
+and it taught me just how privileged I am, 
+to be able to have a good economic living condition
+(even if its not rich enough to afford fursuits)
+and also to be able to have parents, friends, and
+classmates who support me through the things I like doing. 
+
+I'm a very psychologically and mentally, uhhhh, 
+"interesting" person, so I can be hard to deal with. 
+I appreciate all the support y'all have given me, 
+especially my IRL friends! (You know who you are meow :3) 
+
+Thank you for being here! If you're reading this, 
+this much down into a birthday rant, that means you care
+about me, and I appreciate that. 
+
+I'm grateful for the things I have, 
+for the world I can live in, 
+for the achievements I had, 
+for the contexts in which I stand, 
+and for the endless gratitudes that others have extended
+towards me. 
+
+==========================================================
+
+| Community
+
+Through my interaction with people online, I have
+continuously involved myself in all sorts of communities, 
+especially those which are more mathematically or
+technically focused. 
+
+Each and every one of these communities has deeply shaped
+who I am, but I wish to vaguely allude to some of them
+which were incredibly impactful. If you are genuinely
+interested in these communities, they are relatively easy
+to find with a straightforward search. 
+
+For the sake of privacy, I won't explicitly link any server
+or name any particular person. 
+
+| PowerPoint
+
+It has almost been a year, but I still remember every bit
+of it. The video, seeing it, contemplating strategies, 
+being highly active in a Discord server... 
+it all started here. The madness, staring at SmartArt
+for hours on end until we made that critical observation, 
+and reading Ramanujan papers and Grundlagen der Geometrie...
+it all led to this. 
+
+So many friends I met along the way, so many figures
+I have never dreamed of meeting. Specific thanks to
+the server owner! Helped me with some stuff pertaining to
+my mathematical research. That was insane. Side effect: 
+I became a furry. 
+
+Easily most life-changing thing I've ever done, leading into
+so many hours of livestreams, additional content, 
+and then into Math Club, with me presenting my ideas
+through seminars. (As a side quest, a video with me as
+a collaborator got 1M views!) 
+
+I can't wait for part 3. 
+
+| HeXO
+
+March. A video. Pieces on a hexagonal grid. 
+Hundreds of hours placing said pieces to get #1 rank. 
+
+Another wild experience for me, interacting with so much people
+to perfect a game, defining terminology, contributing to
+the open source bot (and learning a programming language for it), 
+refining strategies, proving mathematical results, giving talks, 
+participating and commentating on tournaments, participating
+in events, moderating the community, building the community, 
+and getting content creators to play it... It feels so surreal. 
+
+(As a side quest, learned Omok and placed #1 in an Omok tourney
+for HeXO players.) 
+
+| starmathcat
+
+starmathcat was something more recent, around August this year. 
+Most notably, it has really helped with my productivity in ways
+which I do not fully comprehend, but I also made
+a lot of friends, which was really nice. Also met a lot of
+old (furry) friends. starmathcat showed me a possible future
+for me, where I can produce content, be happy, whilst earning
+a living. I ended up making worksheets for him, and became
+(trial) moderator. 
+
+I want to do more such content, and I believe I will! 
+
+==========================================================
+
+| Piano
+
+I've started liking piano-playing more, ever since Ross
+(which was also nice meow) and taking Music Theory. 
+Piano is especially soothing for it, especially as I
+endured stressful times of college applications, et cetera. 
+
+| Research
+
+I've made steady progress on a research project I'm actually
+proud of! No details though. 
+
+==========================================================
+
+| Identity
+
+It's truly an experience to turn {age}. Conventionally, 
+it is a symbol for coming of age and maturity, 
+signifying adulthood. But I've mostly been more confused. 
+Something about me is different. 
+
+I've always known (well, suspected strongly enough
+to accept it as an axiom in my system) that I am
+neurodivergent. A bit more than a year ago, I was first
+introduced to furries, and now I've seen so much more, 
+as well as my previous friends turning into (or simply
+being more open about them being) furries / therians, 
+and something about it gradually resonated more and more. 
+It just felt like a more free way to express myself, 
+and I take it with no regrets. 
+
+There, I said it. I'm a furry. Meow! 
+
+But there's other stuff that compelled me to further explore
+my identity. I couldn't understand (except from a 
+surface-level, definition-oriented view) love, 
+particularly the kind which is sexual in essence, 
+but also romantic love. Even as I tried to relate to my
+previous experiences, it felt more as if I was out-of-place
+playing the role of someone expressing love, if anything. 
+Hence, provisionally, I consider myself aromantic asexual. 
+I've definitely brought this up multiple times in a joking
+manner, like
+
+> [name]: So consider your boyfriend or girlfriend...
+> me: F*ck you, [name], I'm aroace
+
+Around the time, I was already pretty certain I was aroace. 
+
+There's other stuff, but that... I'll leave to another time. 
+
+==========================================================
+
+| End
+
+To live, is a unique act of partaking in a fragment of
+what is known as the "human experience". 
+
+Nobody knows what it truly means. 
+
+""")
+
+exit(0)
+
+
+
+# helper.py
+
+class User: 
+  def __init__(self, name, age=0): 
+    self.__name, self.__age = name, age
+  def set_age(self, age=None): 
+    old = self.__age
+    if age is None: age = old + 1
+    self.__age = age
+    return old
+  def get_name(self): return self.__name
+  def get_age(self): return self.__age
+
+class World:
+  def __init__(self, name, users=None):
+    if users is None: users = []
+    self.__name, self.__users = name, users
+  def register_user(self, *args, **kwargs): 
+    self.__users.append(User(*args, **kwargs))
+  def get_users_by_name(self, name): 
+    return [
+      user for user in self.__users
+      if user.get_name() == name
+    ]
